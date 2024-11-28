@@ -14,8 +14,8 @@ function getHumanChoice() {
 
 let humanScore = 0, computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowercase();
+function playRound(humanChoice = "", computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
     switch (humanChoice) {
         case "rock":
             if (computerChoice === "rock")
@@ -56,3 +56,24 @@ function playRound(humanChoice, computerChoice) {
             break;
     }
 }
+
+
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        
+        playRound(humanSelection, computerSelection);
+    }
+
+    if (humanScore > computerScore) {
+        console.log("You win!");
+    } else if (humanScore < computerScore) {
+        console.log("You lose!");
+    } else {
+        console.log("You tie!");
+    }
+}
+
+playGame();
