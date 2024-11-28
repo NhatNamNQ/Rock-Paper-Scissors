@@ -7,4 +7,9 @@ function getComputerChoice() {
     return "scissors";
 }
 
-console.log(getComputerChoice())
+function getHumanChoice() {
+    let humanChoice = prompt("rock, paper of scissors?");
+    return humanChoice;
+}
+
+let humanScore = 0, computerScore = 0;
