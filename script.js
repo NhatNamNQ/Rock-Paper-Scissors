@@ -7,11 +7,6 @@ function getComputerChoice() {
     return "scissors";
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt("rock, paper of scissors?");
-    return humanChoice;
-}
-
 let humanScore = 0, computerScore = 0;
 
 function playRound(humanChoice = "", computerChoice) {
@@ -27,13 +22,13 @@ function playRound(humanChoice = "", computerChoice) {
             else {
                 console.log("You lose! Paper beats Rock")
                 computerScore++;
+
             }
             break;
         case "paper":
             if (computerChoice === "paper")
                 console.log("You tied!");
-            else if (computerChoice === "rock")
-            {
+            else if (computerChoice === "rock") {
                 console.log("You win! Paper beats Rock")
                 humanScore++;
             }
@@ -57,23 +52,38 @@ function playRound(humanChoice = "", computerChoice) {
     }
 }
 
+document.getElementById("player-score").textContent = humanScore;
+document.getElementById("computer-score").textContent = computerScore;
 
+let buttons = document.querySelector(".buttons");
 
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        
-        playRound(humanSelection, computerSelection);
+buttons.addEventListener("click", (event) => {
+    let target = event.target;
+    switch (target.id) {
+        case "Scissors":
+            playRound("Scissors", getComputerChoice());
+            break;
+        case "Rock":
+            playRound("Rock", getComputerChoice());
+            break;
+        case "Paper":
+            playRound("Paper", getComputerChoice());
+            break;
     }
-
-    if (humanScore > computerScore) {
-        console.log("You win!");
-    } else if (humanScore < computerScore) {
-        console.log("You lose!");
-    } else {
-        console.log("You tie!");
+    document.getElementById("player-score").textContent = humanScore;
+    document.getElementById("computer-score").textContent = computerScore;
+    if (humanScore === 5) {
+        document.getElementById("result").textContent = "You win!";
+        resetGame();
+    } else if (computerScore === 5) {
+        document.getElementById("result").textContent = "Computer wins!";
+        resetGame();
     }
+});
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    document.getElementById("player-score").textContent = humanScore;
+    document.getElementById("computer-score").textContent = computerScore;
 }
-
-playGame();
