@@ -1,0 +1,46 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	gap: 5vh;
+}
+
+.player-selection {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	gap: 1em;
+}
+
+.player-selection {
+	cursor: pointer;
+}
+
+.result,
+.score {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	height: 100px;
+}
+
+.result,
+.score {
+	font-size: 0.5em;
+}
+
+* {
+	/* outline: 2px red solid; */
+	font-size: 8vw; /* set defualt font size for webpage */
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	height: 100%;
+	background-color: rgb(30, 30, 30);
+	color: #f3f3f3;
+}
