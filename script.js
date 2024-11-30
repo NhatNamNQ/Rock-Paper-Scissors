@@ -1,10 +1,13 @@
 function getComputerChoice() {
-    let computerChoice = Math.floor(Math.random() * 3) + 1;
-    if (computerChoice == 1)
-        return "rock";
-    if (computerChoice == 2)
-        return "paper";
-    return "scissors";
+    // let computerChoice = Math.floor(Math.random() * 3) + 1;
+    // if (computerChoice == 1)
+    //     return "rock";
+    // if (computerChoice == 2)
+    //     return "paper";
+    // return "scissors";
+    let options = ['rock', 'paper', 'scissors'];
+    let computerChoice = options[Math.floor(Math.random() * 3)];
+    return computerChoice;
 }
 
 let humanScore = 0, computerScore = 0;
